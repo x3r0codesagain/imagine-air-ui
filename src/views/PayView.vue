@@ -19,8 +19,8 @@
                     </div>
                 </div>
 
-                <div class="ml-14">
-                    <span class="text-blue-800 font-semibold font-sans text-lg block mt-5">2. ID004</span>
+                <div class="ml-14" v-if="this.booking.returnFlight != null">
+                    <span class="text-blue-800 font-semibold font-sans text-lg block mt-5">{{'2. ' + this.booking.returnFlight.number}}</span>
                     <div v-for="(pax, idx) in booking.passengers" :key="idx">
                         <span class="text-blue-800 font-semibold font-sans text-sm block mt-2">{{ (idx+1) + '. ' + pax.givenName + ' ' + pax.surname}}</span>
                         <div class="flex w-3/12 h-10 mt-2">

@@ -99,7 +99,7 @@
                 <div v-for="(passenger, index) in this.booking.passengers" :key="passenger.idType" class="mt-5">
                     <span class="text-blue-800 text-lg font-sans font-semibold">{{ (index+1) + '. ' + passenger.givenName + ' ' + passenger.surname }}</span>
                     <div class="block px-6 mt-2">
-                        <span class="text-blue-800 text-md font-sans font-normal block">{{ 'Seat: '+ passenger.seat}}</span>
+                        <span class="text-blue-800 text-md font-sans font-normal block">{{ 'Seat: '+ passenger.outboundSeat}}</span>
                         <span class="text-blue-800 text-md font-sans font-normal block">Checked Bags: 20 Kg / 2pcs</span>
                         <span class="text-blue-800 text-md font-sans font-normal block">Carry On Bags: 7 Kg / 1pcs</span>
                     </div>
@@ -113,7 +113,7 @@
                     <div v-for="(passenger, index) in this.booking.passengers" :key="passenger.idType" class="mt-5">
                         <span class="text-blue-800 text-lg font-sans font-semibold">{{ (index+1) + '. ' + passenger.givenName + ' ' + passenger.surname }}</span>
                         <div class="block px-6 mt-2">
-                            <span class="text-blue-800 text-md font-sans font-normal block">{{ 'Seat: '+ passenger.seat}}</span>
+                            <span class="text-blue-800 text-md font-sans font-normal block">{{ 'Seat: '+ passenger.returnSeat}}</span>
                             <span class="text-blue-800 text-md font-sans font-normal block">Checked Bags: 20 Kg / 2pcs</span>
                             <span class="text-blue-800 text-md font-sans font-normal block">Carry On Bags: 7 Kg / 1pcs</span>
                         </div>
