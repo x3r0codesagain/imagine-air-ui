@@ -5,6 +5,8 @@ import FlightsView from '@/views/FlightsView.vue'
 import BookingView from '@/views/BookingView.vue'
 import PayView from '@/views/PayView.vue'
 import ConfirmationView from '@/views/ConfirmationView.vue'
+import ManageBookingView from '@/views/ManageBookingView.vue'
+import ManageMyBookingView from '@/views/ManageMyBookingView.vue'
 
 const routes = [
   {
@@ -39,6 +41,16 @@ const routes = [
     path: '/confirm',
     name: 'confirm',
     component: ConfirmationView,
+  },
+  {
+    path: '/manage/booking',
+    name: 'manage',
+    component: ManageBookingView,
+  },
+  {
+    path: '/manage/booking/find',
+    name: 'mybooking',
+    component: ManageMyBookingView,
   }
 ]
 

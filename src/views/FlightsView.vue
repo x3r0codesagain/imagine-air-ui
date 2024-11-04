@@ -74,7 +74,6 @@ import axios from 'axios';
 import FooterSimple from '@/components/FooterSimple.vue';
 import SelectedFlightConfirmation from '@/components/SelectedFlightConfirmation.vue';
 import router from '@/router';
-import { Store } from 'vuex';
 
 export default {
     name: 'FlightsView',
@@ -128,7 +127,6 @@ export default {
             this.request.child = urlParams.get('child');
             this.request.infant = urlParams.get('infant');
             this.request.travelClass = urlParams.get('travelClass');
-            Store.s
         },
         triggerCollapse() {
             if (this.showSearch === true) {

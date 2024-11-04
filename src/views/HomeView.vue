@@ -114,8 +114,8 @@
           </form>
         </div>
       </div>
-      <div class="md:flex md:justify-center mt-10">
-        <img class="h-8 w-auto items-center" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+      <div class="md:flex md:justify-center mt-10 items-center">
+        <FontAwesomeIcon :icon="['fas', 'plane']" class="fas-plane h-6 w-auto items-center"/> 
         <span class="mx-5 font-sans font-semibold text-3xl text-blue-900">Trending Destinations</span>
       </div>
       <div class="my-6 mx-24 block">
@@ -131,12 +131,19 @@
   </div>
 </template>
 
+<style>
+  .fas-plane {
+    color: navy;
+  }
+</style>
+
 <script>
 // @ is an alias to /src
 import DestinationCard from '@/components/DestinationCard.vue';
 import NavBar from '@/components/NavBar.vue'
 import Footer from '@/components/Footer.vue';
 import router from '@/router';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 
 export default {
@@ -144,7 +151,8 @@ export default {
   components: {
     NavBar,
     DestinationCard,
-    Footer
+    Footer,
+    FontAwesomeIcon
   },
   data() {
     return {

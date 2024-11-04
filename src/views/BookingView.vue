@@ -135,6 +135,10 @@
                                     +628171872122</span>
                             </div>
                         </div>
+                        <div class="mt-4 flex items-center align-middle">
+                            <input type="checkbox"  class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-900 focus:ring-1" :id="'same-contact-' + index" @click="this.setSameContact(index)">
+                            <label class="ml-4 text-blue-900 text-lg font-sans - font-semibold" :for="'contact-same-' + index">Same contact as contact person? (recheck if changed)</label>
+                        </div>
                     </div>
                 </div>
 
@@ -204,7 +208,7 @@ export default {
     components: {
         CustomHeader,
         FontAwesomeIcon,
-        FooterSimple
+        FooterSimple,
     },
     data() {
         return {
@@ -387,6 +391,23 @@ export default {
                 code: response.data.value.bookingCode
             }})
         },
+        setSameContact(i) {
+            var checked = document.getElementById("same-contact-" + i).checked;
+            var phone = document.getElementById("contact-phone").value;
+            var email = document.getElementById("contact-email").value;
+            if (checked && phone != "" && email != "") {
+                document.getElementById("passenger-phone-" + i).value = phone;
+                document.getElementById("passenger-email-" + i).value = email;
+                document.getElementById("passenger-phone-" + i).disabled = true;
+                document.getElementById("passenger-email-" + i).disabled = true;
+            } else {
+                document.getElementById("passenger-phone-" + i).value = "";
+                document.getElementById("passenger-email-" + i).value = "";
+                document.getElementById("same-contact-" + i).checked = false;
+                document.getElementById("passenger-phone-" + i).disabled = false;
+                document.getElementById("passenger-email-" + i).disabled = false;
+            }
+        },
         setFormData() {
             if (!this.setContactData()) {
                 return;
@@ -401,7 +422,8 @@ export default {
                     "gender": "",
                     "idNumber": "",
                     "idType": "",
-                    "seat": "-",
+                    "returnSeat": "-",
+                    "outboundSeat": "-",
                     "phoneNo": "",
                     "email": ""
                 }
@@ -412,7 +434,8 @@ export default {
                 passenger.gender = document.getElementById("passenger-gender-" + i).value;
                 passenger.idNumber = document.getElementById("passenger-id-no-" + i).value;
                 passenger.idType = document.getElementById("passenger-id-type-" + i).value;
-                passenger.seat = "-";
+                passenger.outboundSeat = "-";
+                passenger.returnSeat = "-";
                 passenger.phoneNo =document.getElementById("passenger-phone-" + i).value;
                 passenger.email =document.getElementById("passenger-email-" + i).value;
 

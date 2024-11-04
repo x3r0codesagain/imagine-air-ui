@@ -16,7 +16,7 @@
                             <div class="flex space-x-4">
                                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                                 <router-link to="/" class="rounded-md hover:bg-gray-900 hover:text-white px-3 py-2 text-sm font-medium text-black">Find Flight</router-link>
-                                <router-link to="/" class="rounded-md hover:bg-gray-900 hover:text-white px-3 py-2 text-sm font-medium text-black">Manage Booking</router-link>
+                                <router-link to="/manage/booking" class="rounded-md hover:bg-gray-900 hover:text-white px-3 py-2 text-sm font-medium text-black">Manage Booking</router-link>
                                 <router-link to="/" class="rounded-md hover:bg-gray-900 hover:text-white px-3 py-2 text-sm font-medium text-black">Travel With Us</router-link>
                                 <router-link to="/" class="rounded-md hover:bg-gray-900 hover:text-white px-3 py-2 text-sm font-medium text-black">Corporate Info</router-link>
                             </div>
