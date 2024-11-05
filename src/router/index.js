@@ -7,6 +7,8 @@ import PayView from '@/views/PayView.vue'
 import ConfirmationView from '@/views/ConfirmationView.vue'
 import ManageBookingView from '@/views/ManageBookingView.vue'
 import ManageMyBookingView from '@/views/ManageMyBookingView.vue'
+import TravelInfoView from'@/views/TravelInfoView.vue'
+import CorporateInfoView from '@/views/CorporateInfoView.vue'
 
 const routes = [
   {
@@ -51,7 +53,18 @@ const routes = [
     path: '/manage/booking/find',
     name: 'mybooking',
     component: ManageMyBookingView,
-  }
+  },
+  {
+    path: '/travel/Info',
+    name: 'travelinfo',
+    component: TravelInfoView,
+  },
+  {
+    path: '/corporate/Info',
+    name: 'corporateinfo',
+    component: CorporateInfoView,
+  },
+
 ]
 
 const router = createRouter({
