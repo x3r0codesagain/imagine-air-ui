@@ -1,7 +1,7 @@
 <template>
   <div class="w-64 bg-white border border-gray-200 rounded-lg shadow m-5">
     <a href="#">
-        <img class="rounded-t-lg" src="@/assets/IMG_20240412_151101.jpg" alt="" />
+        <img class="rounded-t-lg h-48" :src="getImageUrl()" alt="" />
     </a>
     <div class="p-5">
         <a href="#">
@@ -23,5 +23,10 @@
 export default {
   name: "DestinationCard",
   props: ["destination"],
+  methods: {
+    getImageUrl() {
+        return this.destination.imageUrl;
+    }
+  }
 };
 </script>

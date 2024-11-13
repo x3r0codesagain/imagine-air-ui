@@ -47,11 +47,11 @@
             </div>
             <div class="inline-block w-40 ml-10">
               <label for="depart_date" class="block font-sans font-bold text-md">Depart Date</label>
-              <input id="depart_date" type="date" class=" font-sans text-sm p-2 w-44 border-gray-300 border text-gray-900 block h-10">
+              <input id="depart_date" v-model="departDateModel" type="date" class=" font-sans text-sm p-2 w-44 border-gray-300 border text-gray-900 block h-10" :min="setOutboundMinDate()">
             </div>
             <div class="inline-block w-40 ml-10">
               <label for="return_date" class="block font-sans font-bold text-md">Return Date</label>
-              <input id="return_date" type="date" :disabled="isOneWay ? true : false" class=" font-sans text-sm p-2 w-44 border-gray-300 border text-gray-900 block h-10">
+              <input id="return_date" type="date" :disabled="isOneWay ? true : false" :min="setReturnMinDate()" class=" font-sans text-sm p-2 w-44 border-gray-300 border text-gray-900 block h-10">
             </div>
             <div class="inline-block w-50">
               <span class="block font-sans font-bold text-md w-50">
@@ -102,8 +102,8 @@
                 <label for="travel_class" class="block my-2 font-sans font-medium text-sm">Select Travel Cabin</label>
                 <select id="travel_class" class="font-sans bg-white border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-60 p-2.5 h-10">
                   <option value="Economy" selected>Economy Class</option>
-                  <option value="Business">Business Class</option>
-                  <option value="First">First Class</option>
+                  <option value="Business" disabled class="bg-slate-100">Business Class</option>
+                  <option value="First" disabled class="bg-slate-100">First Class</option>
                 </select>
               </div>
             </div>
@@ -159,6 +159,7 @@ export default {
       isOneWay: false,
       destinations: [],
       valid: true,
+      departDateModel: null,
       form: {
         origin: "",
         destination: "",
@@ -224,6 +225,28 @@ export default {
         this.valid = true
       }
     },
+    setOutboundMinDate() {
+      var date = new Date();
+      var dd = date.getDate()+1;
+      var mm = date.getMonth() + 1;
+      var yyyy = date.getFullYear();
+      if (dd < 10) {
+        dd = '0' + dd;
+      }
+
+      if (mm < 10) {
+        mm = '0' + mm;
+      }
+
+      return yyyy+'-'+mm+'-'+dd;
+    },
+    setReturnMinDate() {
+      
+      if (document.getElementById("depart_date") !== null) {
+        return document.getElementById("depart_date").value;
+      }
+      return this.setOutboundMinDate();
+    },
     setFormData() {
       this.form.origin = document.getElementById("origins").value
       this.form.destination = document.getElementById("dests").value
@@ -275,7 +298,15 @@ export default {
   },
   beforeMount() {
    this.fetchData();
-  }
+  },
+  watch: {
+        departDateModel: {
+            handler: function() {
+                this.setReturnMinDate();
+            },
+            deep: true
+        }
+    }
 }
 
 
