@@ -8,7 +8,7 @@
             <div class="flex">
                 <div class="print">
                     <form @submit.prevent="printPage('content')">
-                        <button type="submit" class="btn bg-blue-900 w-44 outline-blue-500 outline outline-double text-white font-bold hover:bg-blue-400 p-2 rounded mt-5">Print Itenary</button>
+                        <button type="submit" class="btn bg-blue-900 w-44 outline-blue-500 outline outline-double text-white font-bold hover:bg-blue-400 p-2 rounded mt-5">Print Itinerary</button>
                     </form>
                 </div>
                 <div class="home-btn">

@@ -188,12 +188,14 @@ export default {
                   'Content-type': 'application/json',
                 }
               });
-            if(response.data.errorCode!=null) {
+            if (response.data.errorMessage != null) {
               this.$toast.open({
                 message: response.data.errorMessage,
                 type: 'error'
               });
-            }
+              router.push('/manage/booking');
+              return;
+            } 
             this.booking=response.data.value;
           } catch(error) {
             console.log('error: '+error);
@@ -266,7 +268,7 @@ export default {
             }})
         },
     },
-    mounted() {
+    beforeMount() {
         this.getMyBooking();
     }
 }
